@@ -7,6 +7,7 @@ Detect:
 - device
 - type
 - os
+- version
 
 There are 2 Versions of natigator-detect.js.
 
@@ -21,7 +22,7 @@ size.
 #### Advanced Version
 
 Has many checks for different devices. Is useful if you need to get the exact
-device the visitor is using.
+device the visitor is using. Also provides extended version commands.
 
 API
 ===
@@ -62,3 +63,11 @@ based on the type of device being used:
 #### `.os()`
 
 Returns the name of the operating system being used.
+
+#### `.browserVersion()`
+
+Returns the version of browser being used.
+
+#### `.deviceVersion()`
+
+Returns the version of device being used.
