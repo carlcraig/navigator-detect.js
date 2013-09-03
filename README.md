@@ -14,12 +14,12 @@ There are 2 Versions of natigator-detect.js.
 - navigator-detect.js
 - navigator-detect-advanced.js
 
-#### Basic Version
+### Basic Version
 
 Lacks lots of checks that are executed in the `advanced` version. Samller file
 size.
 
-#### Advanced Version
+### Advanced Version
 
 Has many checks for different devices. Is useful if you need to get the exact
 device the visitor is using. Also provides extended version commands.
