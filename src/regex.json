@@ -1,3 +1,66 @@
+function NavigatorDetect() {
+this.mobileDevices = {
+"iPod": "\biPod",
+"iPhone": "\biPhone.*Mobile",
+"BlackBerry": "BlackBerry|\bBB10\b|rim[0-9]+",
+"Windows": "(?=.*Windows.*)(?=.*Phone.*)",
+"Android": "(?=.*Android.*)(?=.*Mobile.*)"
+};
+this.tabletDevices = {
+"iPad": "iPad|iPad.*Mobile",
+"BlackBerryTablet": "PlayBook|RIM Tablet",
+"WindowsTablet": "Windows NT [0-9.]+; ARM;|(?=.*Windows.*)(?=.*Touch.*)",
+"AndroidTablet": "\bAndroid\b"
+};
+this.mobileBrowsers = {
+"Chrome": "\bCrMo\b|CriOS|Android.*Chrome\/[.0-9]*(Mobile)?",
+"Dolfin": "\bDolfin\b",
+"Opera": "Opera.*Mini|Opera.*Mobi|Android.*Opera|Mobile.*OPR\/[0-9.]+",
+"Skyfire": "Skyfire",
+"IE": "IEMobile|MSIEMobile",
+"Firefox": "fennec|firefox.*maemo|(Mobile|Tablet).*Firefox|Firefox.*Mobile",
+"Bolt": "bolt",
+"TeaShark": "teashark",
+"Blazer": "Blazer",
+"Safari": "Version.*Mobile.*Safari|Safari.*Mobile",
+"Tizen": "Tizen",
+"UCBrowser": "UC.*Browser|UCWEB",
+"DiigoBrowser": "DiigoBrowser",
+"Puffin": "Puffin",
+"Mercury": "\bMercury\b",
+"GenericBrowser": "NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger"
+};
+this.desktopBrowsers = {
+"Opera": "OPR|Opera",
+"Firefox": "Firefox",
+"Chrome": "Chrome",
+"OmniWeb": "OmniWeb",
+"Safari": "Safari",
+"IE": "MSIE",
+"iCab": "iCab",
+"Konqueror": "Konqueror",
+"Camino": "Camino",
+"Netscape": "Netscape",
+"Mozilla": "Gecko"
+};
+this.mobileOperatingSystems = {
+"Android": "Android",
+"BlackBerryOS": "blackberry|\bBB10\b|rim tablet os",
+"PalmOS": "PalmOS|avantgo|blazer|elaine|hiptop|palm|plucker|xiino",
+"SymbianOS": "Symbian|SymbOS|Series60|Series40|SYB-[0-9]+|\bS60\b",
+"WindowsMobileOS": "Windows CE.*(PPC|Smartphone|Mobile|[0-9]{3}x[0-9]{3})|Window Mobile|Windows Phone [0-9.]+|WCE;",
+"WindowsPhoneOS": "Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7",
+"iOS": "\biPhone.*Mobile|\biPod|\biPad",
+"MeeGoOS": "MeeGo",
+"MaemoOS": "Maemo",
+"JavaOS": "J2ME/|\bMIDP\b|\bCLDC\b",
+"webOS": "webOS|hpwOS",
+"badaOS": "\bBada\b",
+"BREWOS": "BREW"
+}
+}
+
+
 {
   "rules": {
     mobileDevices: {

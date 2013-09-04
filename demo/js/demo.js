@@ -1,4 +1,13 @@
-var text;
+console.log(window.navigatorDetect);
+
+
+
+
+
+
+
+
+
 
 //text = document.createTextNode( window.navigatorDetect.userAgent );
 //document.getElementById( 'userAgent' ).appendChild( text );
@@ -37,5 +46,5 @@ var text;
 //console.log(window.navigator.userAgent);
 //
 //console.log( window.navigatorDetect );
-
-console.log(window.navigatorDetect.testRuleOnUA(window.navigatorDetect.mobileDevices.iPhone));
+//
+//console.log(window.navigatorDetect.testRuleOnUA(window.navigatorDetect.mobileDevices.iPhone));

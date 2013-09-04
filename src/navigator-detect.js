@@ -1,5 +1,56 @@
 (function( window ) {
 
+  function NavigatorDetect() {
+    this.mobileDevices = {
+      "iPod": "\biPod",
+      "iPhone": "\biPhone.*Mobile",
+      "BlackBerry": "BlackBerry|\bBB10\b|rim[0-9]+",
+      "WindowsPhone": "(?=.*Windows.*)(?=.*Phone.*)",
+      "AndroidMobile": "(?=.*Android.*)(?=.*Mobile.*)"
+    };
+    this.tabletDevices = {
+      "iPad": "iPad|iPad.*Mobile",
+      "BlackBerryTablet": "PlayBook|RIM Tablet",
+      "WindowsTablet": "Windows NT [0-9.]+; ARM;|(?=.*Windows.*)(?=.*Touch.*)",
+      "AndroidTablet": "\bAndroid\b"
+    };
+    this.mobileBrowsers = {
+      "Chrome": "\bCrMo\b|CriOS|Android.*Chrome\/[.0-9]*(Mobile)?",
+      "Opera": "Opera.*Mini|Opera.*Mobi|Android.*Opera|Mobile.*OPR\/[0-9.]+",
+      "IE": "IEMobile|MSIEMobile",
+      "Firefox": "fennec|firefox.*maemo|(Mobile|Tablet).*Firefox|Firefox.*Mobile",
+      "Safari": "Version.*Mobile.*Safari|Safari.*Mobile",
+      "UCBrowser": "UC.*Browser|UCWEB"
+    };
+    this.desktopBrowsers = {
+      "Opera": "OPR|Opera",
+      "Firefox": "Firefox",
+      "Chrome": "Chrome",
+      "Safari": "Safari",
+      "IE": "MSIE"
+    };
+    this.mobileOperatingSystems = {
+      "Android": "Android",
+      "BlackBerry": "blackberry|\bBB10\b|rim tablet os",
+      "Windows": "Windows CE.*(PPC|Smartphone|Mobile|[0-9]{3}x[0-9]{3})|Window Mobile|Windows Phone [0-9.]+|WCE;|Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7",
+      "iOS": "\biPhone.*Mobile|\biPod|\biPad",
+      "webOS": "webOS|hpwOS",
+      "badaOS": "\bBada\b"
+    }
+  }
+
+  NavigatorDetect.prototype.device = function() {
+
+  };
+
+  // If there is a window object, we define navigatorDetect
+  if ( typeof window === "object" && typeof window.document === "object" ) {
+    window.navigatorDetect = new NavigatorDetect();
+  }
+
+
+ /*
+
   var nd = {
     mobileDevices: {
       "iPod": "\biPod",
@@ -47,11 +98,12 @@
     }
   };
 
-
+*/
 
   /**
    * @constructor
    */
+  /*
   function NavigatorDetect( userAgent ) {
     this.userAgent = userAgent;
     this.mobileDevices = {
@@ -150,5 +202,6 @@
   if ( typeof window === "object" && typeof window.document === "object" ) {
     window.navigatorDetect = new NavigatorDetect( window.navigator.userAgent );
   }
+  */
 
 })( window );
