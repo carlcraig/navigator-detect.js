@@ -21,10 +21,10 @@ var text;
 //text = document.createTextNode( window.navigatorDetect.isMobile() );
 //document.getElementById( 'isMobile' ).appendChild( text );
 
-var userAgent = window.navigator.userAgent;
-var regex = "\biPhone.*Mobile|\biPod";
-
-window.navigatorDetect = new NavigatorDetect();
+//var userAgent = window.navigator.userAgent;
+//var regex = "\biPhone.*Mobile|\biPod";
+//
+//window.navigatorDetect = new NavigatorDetect();
 
 //console.log(window.navigatorDetect.rules.mobileDevices.iPhone.replace(/b/g, '\\b'));
 //
@@ -34,6 +34,8 @@ window.navigatorDetect = new NavigatorDetect();
 //
 //console.log(new RegExp(window.navigatorDetect.rules.mobileDevices.iPhone.replace(/b/g, '\\b')).test(userAgent));
 
-console.log(userAgent);
+//console.log(window.navigator.userAgent);
+//
+//console.log( window.navigatorDetect );
 
-console.log(window.navigatorDetect.testRuleOnUA( window.navigatorDetect.rules.mobileDevices.Android ) );
+console.log(window.navigatorDetect.testRuleOnUA(window.navigatorDetect.mobileDevices.iPhone));
