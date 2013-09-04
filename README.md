@@ -64,10 +64,14 @@ based on the type of device being used:
 
 Returns the name of the operating system being used.
 
-#### `.browserVersion()`
+#### `.isDevice( device )`
 
-Returns the version of browser being used.
+Checks if the device is the same as specified in `device` parameter
 
-#### `.deviceVersion()`
+#### `.isBrowser( browser )`
 
-Returns the version of device being used.
+Checks if the browser is the same as specified in `browser` parameter
+
+#### `.isOS( os )`
+
+Checks if the operating system is the same as specified in `os` parameter

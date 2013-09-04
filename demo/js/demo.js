@@ -1,50 +1,16 @@
-console.log(window.navigatorDetect);
+(function(c){function b(a){this.c=a;this.a={device:!1,type:!1,browser:!1,os:!1};this.f={iPod:"\biPod",iPhone:"\biPhone.*Mobile",BlackBerry:"BlackBerry|\bBB10\b|rim[0-9]+",WindowsPhone:"(?=.*Windows.*)(?=.*Phone.*)",AndroidMobile:"(?=.*Android.*)(?=.*Mobile.*)"};this.i={iPad:"iPad|iPad.*Mobile",BlackBerryTablet:"PlayBook|RIM Tablet",WindowsTablet:"Windows NT [0-9.]+; ARM;|(?=.*Windows.*)(?=.*Touch.*)",AndroidTablet:"\bAndroid\b"};this.e={Chrome:"\bCrMo\b|CriOS|Android.*Chrome/[.0-9]*(Mobile)?",Opera:"Opera.*Mini|Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+",
+  IE:"IEMobile|MSIEMobile",Firefox:"fennec|firefox.*maemo|(Mobile|Tablet).*Firefox|Firefox.*Mobile",Safari:"Version.*Mobile.*Safari|Safari.*Mobile",UCBrowser:"UC.*Browser|UCWEB"};this.d={Opera:"OPR|Opera",Firefox:"Firefox",Chrome:"Chrome",Safari:"Safari",IE:"MSIE"};this.g={Android:"Android",BlackBerry:"blackberry|\bBB10\b|RIM Tablet OS|BlackBerry;",Windows:"Windows CE.*(PPC|Smartphone|Mobile|[0-9]{3}x[0-9]{3})|Window Mobile|Windows Phone [0-9.]+|WCE;|Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7",
+  iOS:"\biPhone.*Mobile|\biPod|\biPad",webOS:"webOS|hpwOS",badaOS:"\bBada\b"};this.h={Windows:"Win",MacOS:"Mac",UNIX:"X11",Linux:"Linux"}}b.prototype.b=function(a,b){"[object Array]"!==Object.prototype.toString.call(a)&&(a=[a]);for(var c=0;c<a.length;c++)if(RegExp(a[c].replace(RegExp("\b","g"),"\\b")).test(b))return!0;return!1};b.prototype.type=function(){if(this.a.type)return this.a.type;this.device();return this.a.type};b.prototype.device=function(){if(this.a.device)return this.a.device;for(var a in this.f)if(this.f.hasOwnProperty(a)&&
+  this.b(this.f[a],this.c))return this.a.type="mobile",this.a.device=a;for(a in this.i)if(this.i.hasOwnProperty(a)&&this.b(this.i[a],this.c))return this.a.type="tablet",this.a.device=a;this.a.type="desktop";return this.a.device="unknown"};b.prototype.browser=function(){if(this.a.browser)return this.a.browser;for(var a in this.e)if(this.e.hasOwnProperty(a)&&this.b(this.e[a],this.c))return this.a.browser=a;if(c.opera)return this.a.browser="Opera";for(a in this.d)if(this.d.hasOwnProperty(a)&&this.b(this.d[a],
+  this.c))return this.a.browser=a;return this.a.browser="unknown"};b.prototype.os=function(){if(this.a.os)return this.a.os;for(var a in this.g)if(this.g.hasOwnProperty(a)&&this.b(this.g[a],this.c))return this.a.os=a;for(a in this.h)if(this.h.hasOwnProperty(a)&&this.b(this.h[a],this.c))return this.a.os=a;return this.a.os="unknown"};b.prototype.isMobile=function(){this.a.type||this.device();return"mobile"===this.a.type};b.prototype.isTablet=function(){this.a.type||this.device();return"tablet"===this.a.type};
+  b.prototype.isDesktop=function(){this.a.type||this.device();return"desktop"===this.a.type};b.prototype.isDevice=function(a){this.a.device||this.device();return this.a.device===a};b.prototype.isBrowser=function(a){this.a.browser||this.browser();return this.a.browser===a};b.prototype.isOS=function(a){this.a.os||this.os();return this.a.os===a};"object"===typeof module&&module&&"object"===typeof module.exports?module.exports=b:"function"===typeof define&&"undefined"!==typeof define.j&&define("navigatorDetect",
+    [],function(){return b});"object"===typeof c&&"object"===typeof c.document&&(c.navigatorDetect=new b(c.navigator.userAgent))})(window);
 
-
-
-
-
-
-
-
-
-
-//text = document.createTextNode( window.navigatorDetect.userAgent );
-//document.getElementById( 'userAgent' ).appendChild( text );
-//
-//text = document.createTextNode( window.navigatorDetect.type() );
-//document.getElementById( 'type' ).appendChild( text );
-//
-//text = document.createTextNode( window.navigatorDetect.device() );
-//document.getElementById( 'device' ).appendChild( text );
-//
-//text = document.createTextNode( window.navigatorDetect.browser() );
-//document.getElementById( 'browser' ).appendChild( text );
-//
-//text = document.createTextNode( window.navigatorDetect.isDesktop() );
-//document.getElementById( 'isDesktop' ).appendChild( text );
-//
-//text = document.createTextNode( window.navigatorDetect.isTablet() );
-//document.getElementById( 'isTablet' ).appendChild( text );
-//
-//text = document.createTextNode( window.navigatorDetect.isMobile() );
-//document.getElementById( 'isMobile' ).appendChild( text );
-
-//var userAgent = window.navigator.userAgent;
-//var regex = "\biPhone.*Mobile|\biPod";
-//
-//window.navigatorDetect = new NavigatorDetect();
-
-//console.log(window.navigatorDetect.rules.mobileDevices.iPhone.replace(/b/g, '\\b'));
-//
-//console.log(new RegExp(window.navigatorDetect.rules.mobileDevices.iPhone.replace(new RegExp('\b', 'g'), '\\b')));
-//
-//console.log(new RegExp(window.navigatorDetect.rules.mobileDevices.iPhone.replace(/\b/, '\b')));
-//
-//console.log(new RegExp(window.navigatorDetect.rules.mobileDevices.iPhone.replace(/b/g, '\\b')).test(userAgent));
-
-//console.log(window.navigator.userAgent);
-//
-//console.log( window.navigatorDetect );
-//
-//console.log(window.navigatorDetect.testRuleOnUA(window.navigatorDetect.mobileDevices.iPhone));
+document.getElementById( 'userAgent' ).appendChild( document.createTextNode( window.navigator.userAgent ) );
+document.getElementById( 'type' ).appendChild( document.createTextNode( window.navigatorDetect.type() ) );
+document.getElementById( 'device' ).appendChild( document.createTextNode( window.navigatorDetect.device() ) );
+document.getElementById( 'browser' ).appendChild( document.createTextNode( window.navigatorDetect.browser() ) );
+document.getElementById( 'os' ).appendChild( document.createTextNode( window.navigatorDetect.os() ) );
+document.getElementById( 'isMobile' ).appendChild( document.createTextNode( window.navigatorDetect.isMobile() ) );
+document.getElementById( 'isTablet' ).appendChild( document.createTextNode( window.navigatorDetect.isTablet() ) );
+document.getElementById( 'isDesktop' ).appendChild( document.createTextNode( window.navigatorDetect.isDesktop() ) );
