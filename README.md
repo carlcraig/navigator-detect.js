@@ -75,3 +75,10 @@ Checks if the browser is the same as specified in `browser` parameter
 #### `.isOS( os )`
 
 Checks if the operating system is the same as specified in `os` parameter
+
+License
+=======
+
+navigator-detect.js is dual licensed with the Apache-2.0 or MIT license.
+
+See LICENSE-APACHE-2.0 and LICENSE-MIT for more details.

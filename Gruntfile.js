@@ -31,7 +31,8 @@ module.exports = function(grunt) {
       banner:
         '/**\n' +
           ' * <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
-          ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+          ' * @license Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+          ' * Dual licensed with the Apache-2.0 or MIT license.\n' +
           ' */'
     },
 

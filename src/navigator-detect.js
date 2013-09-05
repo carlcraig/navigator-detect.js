@@ -1,3 +1,7 @@
+/**
+ * Copyright 2013 Threecee Studios
+ * navigator-detect.js is dual licensed with the Apache-2.0 or MIT license.
+ */
 (function( window ) {
 
   /**

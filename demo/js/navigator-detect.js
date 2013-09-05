@@ -1,6 +1,7 @@
 /**
- * navigator-detect - v0.0.0 - 2013-09-05
- * Copyright (c) 2013 Threecee Studios
+ * navigator-detect.js - v0.0.0 - 2013-09-05
+ * @license Copyright (c) 2013 Threecee Studios
+ * Dual licensed with the Apache-2.0 or MIT license.
  */
 (function(window) {
     function NavigatorDetect(userAgent) {
