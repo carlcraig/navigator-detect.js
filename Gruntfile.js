@@ -3,15 +3,24 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks( 'grunt-contrib-jshint' );
   grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-  grunt.loadNpmTasks( 'grunt-contrib-clean' );
   grunt.loadNpmTasks( 'grunt-strip' );
   grunt.loadNpmTasks( 'grunt-karma' );
   grunt.loadNpmTasks( 'grunt-contrib-watch' );
+  grunt.loadNpmTasks('grunt-closure-compiler');
+  grunt.loadNpmTasks('grunt-banner');
+  grunt.loadNpmTasks( 'grunt-contrib-copy' );
 
   grunt.registerTask( 'build', [
     'jshint',
-    'uglify',
-    'strip:build'
+    'uglify:dist',
+    'closure-compiler:dist',
+    'strip:build',
+    'usebanner'
+  ]);
+
+  grunt.registerTask( 'demo', [
+    'build',
+    'copy:demo'
   ]);
 
   grunt.initConfig({
@@ -23,13 +32,15 @@ module.exports = function(grunt) {
         '/**\n' +
           ' * <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
           ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-          ' */\n'
+          ' */'
     },
 
-    /**
-     * Clean
-     */
-    clean: {
+    copy: {
+      demo: {
+        files: [
+          {expand: true, flatten: true, src: ['dist/*.js'], dest: 'demo/js/', filter: 'isFile'}
+        ]
+      }
     },
 
     /**
@@ -38,14 +49,16 @@ module.exports = function(grunt) {
     uglify: {
       options: {
         preserveComments: 'some',
-        banner: '<%= meta.banner %>'
+        banner: '<%= meta.banner %>\n'
       },
-      min: {
+      dist: {
         options: {
-          mangle: true
+          mangle: false,
+          compress: false,
+          beautify: true
         },
         files: {
-          'dist/navigator-detect.min.js': [
+          'dist/navigator-detect.js': [
             'src/navigator-detect.js'
           ]
         }
@@ -102,6 +115,39 @@ module.exports = function(grunt) {
       unit: {
         configFile: 'test/karma.conf.js',
         background: true
+      }
+    },
+
+    /**
+     * Closure Compiler
+     * uses CLOSURE_PATH environment variable to point towards closure compiler jar file
+     * make sure env variable points to root of closure path, meaning the jar file
+     * will be CLOSURE_PATH/build/compiler.jar
+     */
+    'closure-compiler': {
+      dist: {
+        js: 'src/navigator-detect.js',
+        jsOutputFile: 'dist/navigator-detect.min.js',
+        maxBuffer: 500,
+        options: {
+          compilation_level: 'ADVANCED_OPTIMIZATIONS',
+          language_in: 'ECMASCRIPT5'
+        }
+      }
+    },
+
+    /**
+     * Banner
+     */
+    usebanner: {
+      taskName: {
+        options: {
+          position: 'top',
+          banner: '<%= meta.banner %>'
+        },
+        files: {
+          src: [ 'dist/navigator-detect.min.js' ]
+        }
       }
     }
 

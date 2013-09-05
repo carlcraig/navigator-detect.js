@@ -28,9 +28,9 @@
      * @type {{iPod: string, iPhone: string, BlackBerry: string, WindowsPhone: string, AndroidMobile: string}}
      */
     this.mobileDevices = {
-      "iPod": "\biPod",
-      "iPhone": "\biPhone.*Mobile",
-      "BlackBerry": "BlackBerry|\bBB10\b|rim[0-9]+",
+      "iPod": "\\biPod",
+      "iPhone": "\\biPhone.*Mobile",
+      "BlackBerry": "BlackBerry|\\bBB10\\b|rim[0-9]+",
       "WindowsPhone": "(?=.*Windows.*)(?=.*Phone.*)",
       "AndroidMobile": "(?=.*Android.*)(?=.*Mobile.*)",
       "GenericMobile": "Mobile"
@@ -44,7 +44,7 @@
       "iPad": "iPad|iPad.*Mobile",
       "BlackBerryTablet": "PlayBook|RIM Tablet",
       "WindowsTablet": "Windows NT [0-9.]+; ARM;|(?=.*Windows.*)(?=.*Touch.*)",
-      "AndroidTablet": "\bAndroid\b"
+      "AndroidTablet": "\\bAndroid\\b"
     };
 
     /**
@@ -52,7 +52,7 @@
      * @type {{Chrome: string, Opera: string, IE: string, Firefox: string, Safari: string, UCBrowser: string}}
      */
     this.mobileBrowsers = {
-      "Chrome": "\bCrMo\b|CriOS|Android.*Chrome\/[.0-9]*(Mobile)?",
+      "Chrome": "\\bCrMo\\b|CriOS|Android.*Chrome\/[.0-9]*(Mobile)?",
       "Opera": "Opera.*Mini|Opera.*Mobi|Android.*Opera|Mobile.*OPR\/[0-9.]+",
       "IE": "IEMobile|MSIEMobile",
       "Firefox": "fennec|firefox.*maemo|(Mobile|Tablet).*Firefox|Firefox.*Mobile",
@@ -78,11 +78,11 @@
      */
     this.mobileOperatingSystems = {
       "Android": "Android",
-      "BlackBerry": "blackberry|\bBB10\b|RIM Tablet OS|BlackBerry;",
+      "BlackBerry": "blackberry|\\bBB10\\b|RIM Tablet OS|BlackBerry;",
       "Windows": "Windows CE.*(PPC|Smartphone|Mobile|[0-9]{3}x[0-9]{3})|Window Mobile|Windows Phone [0-9.]+|WCE;|Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7",
-      "iOS": "\biPhone.*Mobile|\biPod|\biPad",
+      "iOS": "\\biPhone.*Mobile|\\biPod|\\biPad",
       "webOS": "webOS|hpwOS",
-      "badaOS": "\bBada\b"
+      "badaOS": "\\bBada\\b"
     };
 
     /**
@@ -108,7 +108,7 @@
       rules = [ rules ];
     }
     for ( var i = 0; i < rules.length; i++ ) {
-      if ( new RegExp( rules[ i ].replace( new RegExp( '\b', 'g' ), '\\b' ) ).test( haystack ) ) {
+      if ( new RegExp( rules[ i ] ).test( haystack ) ) {
         return true;
       }
     }
@@ -196,8 +196,10 @@
       }
     }
     for ( prop in this.operatingSystems ) {
-      if ( this.operatingSystems.hasOwnProperty( prop ) && this.testRule( this.operatingSystems[ prop ], this.ua ) ) {
-        return this.detected.os = prop;
+      if ( this.operatingSystems.hasOwnProperty( prop ) ) {
+        if ( this.testRule( this.operatingSystems[ prop ], this.ua ) ) {
+          return this.detected.os = prop;
+        }
       }
     }
     return this.detected.os = 'unknown';

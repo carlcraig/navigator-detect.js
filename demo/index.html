@@ -4,32 +4,77 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-  <title>device-detect</title>
+  <title>navigator-detect.js</title>
 </head>
 <body>
-<div class="container" id="container">
-  <h1>device-detect</h1>
-  <hr>
-  <dl>
-    <dt>User Agent</dt>
-    <dd id="userAgent"></dd>
-    <dt>Type</dt>
-    <dd id="type"></dd>
-    <dt>Device</dt>
-    <dd id="device"></dd>
-    <dt>Browser</dt>
-    <dd id="browser"></dd>
-    <dt>OS</dt>
-    <dd id="os"></dd>
-    <dt>isDesktop</dt>
-    <dd id="isDesktop"></dd>
-    <dt>isTablet</dt>
-    <dd id="isTablet"></dd>
-    <dt>isMobile</dt>
-    <dd id="isMobile"></dd>
-  </dl>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>device-detect</h1>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+
+      <h3>User Agent</h3>
+      <p id="userAgent"></p>
+<pre>
+window.navigator.userAgent
+</pre>
+
+      <h3>Type</h3>
+      <p id="type"></p>
+<pre>
+window.navigatorDetect.type()
+</pre>
+
+      <h3>Device</h3>
+      <p id="device"></p>
+<pre>
+window.navigatorDetect.device()
+</pre>
+
+      <h3>Browser</h3>
+      <p id="browser"></p>
+<pre>
+window.navigatorDetect.browser()
+</pre>
+
+    </div>
+
+    <div class="col-lg-6">
+
+      <h3>OS</h3>
+      <p id="os"></p>
+<pre>
+window.navigatorDetect.os()
+</pre>
+
+      <h3>isDesktop</h3>
+      <p id="isDesktop"></p>
+<pre>
+window.navigatorDetect.isDesktop()
+</pre>
+
+      <h3>isTablet</h3>
+      <p id="isTablet"></p>
+<pre>
+window.navigatorDetect.isTablet()
+</pre>
+
+      <h3>isMobile</h3>
+      <p id="isMobile"></p>
+<pre>
+window.navigatorDetect.isMobile()
+</pre>
+
+    </div>
+
+  </div>
 </div>
 <!-- Scripts ------------------------------------------------------------------>
+<script type="text/javascript" src="js/navigator-detect.min.js"></script>
 <script type="text/javascript" src="js/demo.js"></script>
 </body>
 </html>

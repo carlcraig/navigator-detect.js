@@ -1,19 +1,30 @@
 {
-  "name": "navigator-detect",
+  "name": "navigator-detect.js",
   "version": "0.0.0",
-  "description": "Detect Device, Browser, Type, OS, Version",
+  "description": "Detect Device, Browser, Type, OS",
   "author": "Threecee Studios",
-  "license": "MIT and APACHE2",
+  "license": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/ThreeceeStudios/navigator-detect.js/master/LICENSE-MIT"
+    },
+    {
+      "type": "Apache-2.0",
+      "url": "https://raw.github.com/ThreeceeStudios/navigator-detect.js/master/LICENSE-APACHE-2.0"
+    }
+  ],
   "homepage": "https://github.com/ThreeceeStudios/navigator-detect.js.git",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.1.1",
     "grunt-contrib-uglify": "~0.2.1",
-    "grunt-contrib-clean": "~0.4.1",
     "grunt-strip": "~0.2.1",
     "grunt-karma": "~0.4.4",
-    "grunt-contrib-watch": "~0.4.3"
+    "grunt-contrib-watch": "~0.4.3",
+    "grunt-closure-compiler": "0.0.21",
+    "grunt-banner": "~0.1.4",
+    "grunt-contrib-copy": "~0.4.1"
   },
   "repository": {
     "type": "git",
