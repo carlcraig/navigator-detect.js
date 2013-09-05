@@ -28,7 +28,7 @@ function NavigatorDetect( userAgent ) {
   };
 
   /**
-   * Mobile Device Rules
+   * Mobile Devices
    * @type {{iPod: string, iPhone: string, BlackBerry: string, WindowsPhone: string, AndroidMobile: string}}
    */
   this.mobileDevices = {
@@ -36,12 +36,11 @@ function NavigatorDetect( userAgent ) {
     "iPhone": "\\biPhone.*Mobile",
     "BlackBerry": "BlackBerry|\\bBB10\\b|rim[0-9]+",
     "WindowsPhone": "(?=.*Windows.*)(?=.*Phone.*)",
-    "AndroidMobile": "(?=.*Android.*)(?=.*Mobile.*)",
-    "GenericMobile": "Mobile"
+    "AndroidMobile": "(?=.*Android.*)(?=.*Mobile.*)"
   };
 
   /**
-   * Tablet Device Rules
+   * Tablet Devices
    * @type {{iPad: string, BlackBerryTablet: string, WindowsTablet: string, AndroidTablet: string}}
    */
   this.tabletDevices = {
@@ -52,7 +51,7 @@ function NavigatorDetect( userAgent ) {
   };
 
   /**
-   * Mobile Browser Rules
+   * Mobile Browsers
    * @type {{Chrome: string, Opera: string, IE: string, Firefox: string, Safari: string, UCBrowser: string}}
    */
   this.mobileBrowsers = {
@@ -65,7 +64,7 @@ function NavigatorDetect( userAgent ) {
   };
 
   /**
-   * Desktop Browser Rules
+   * Desktop Browsers
    * @type {{Opera: string, Firefox: string, Chrome: string, Safari: string, IE: string}}
    */
   this.desktopBrowsers = {
@@ -91,12 +90,11 @@ function NavigatorDetect( userAgent ) {
 
   /**
    * Operating Systems
-   * @type {{Windows: string, MacOS: string, UNIX: string, Linux: string}}
+   * @type {{Windows: string, MacOS: string, Linux: string}}
    */
   this.operatingSystems = {
     "Windows": "Win",
     "MacOS": "Mac",
-    "UNIX": "X11",
     "Linux": "Linux"
   };
 }

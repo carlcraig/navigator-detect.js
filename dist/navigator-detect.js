@@ -17,8 +17,7 @@
             iPhone: "\\biPhone.*Mobile",
             BlackBerry: "BlackBerry|\\bBB10\\b|rim[0-9]+",
             WindowsPhone: "(?=.*Windows.*)(?=.*Phone.*)",
-            AndroidMobile: "(?=.*Android.*)(?=.*Mobile.*)",
-            GenericMobile: "Mobile"
+            AndroidMobile: "(?=.*Android.*)(?=.*Mobile.*)"
         };
         this.tabletDevices = {
             iPad: "iPad|iPad.*Mobile",
@@ -52,7 +51,6 @@
         this.operatingSystems = {
             Windows: "Win",
             MacOS: "Mac",
-            UNIX: "X11",
             Linux: "Linux"
         };
     }

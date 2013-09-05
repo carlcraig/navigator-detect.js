@@ -63,9 +63,9 @@ module.exports = function(grunt) {
       },
       tmp: {
         src: [
-          'src/wrap-before.txt',
+          'src/wrap-before.js',
           'src/navigator-detect.js',
-          'src/wrap-after.txt'
+          'src/wrap-after.js'
         ],
         dest: 'tmp/navigator-detect.js'
       },
@@ -140,7 +140,7 @@ module.exports = function(grunt) {
      */
     watch: {
       karma: {
-        files: ['src/*.js', 'test/*.js'],
+        files: ['src/**/*.js', 'test/**/*.js'],
         tasks: ['karma:unit:run']
       }
     },

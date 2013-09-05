@@ -10,8 +10,10 @@ basePath = '..';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  'src/*.js',
-  'test/**/*.spec.js'
+  'test/karma-helpers.js',
+  'src/navigator-detect.js',
+  'test/**/*.spec.js',
+  'test/**/*Spec.js'
 ];
 
 
