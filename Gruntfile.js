@@ -6,36 +6,46 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks( 'grunt-strip' );
   grunt.loadNpmTasks( 'grunt-karma' );
   grunt.loadNpmTasks( 'grunt-contrib-watch' );
-  grunt.loadNpmTasks('grunt-closure-compiler');
-  grunt.loadNpmTasks('grunt-banner');
+  grunt.loadNpmTasks( 'grunt-closure-compiler' );
   grunt.loadNpmTasks( 'grunt-contrib-copy' );
+  grunt.loadNpmTasks( 'grunt-contrib-concat' );
 
   grunt.registerTask( 'build', [
     'jshint',
+    'concat:tmp',
     'uglify:dist',
     'closure-compiler:dist',
     'strip:build',
-    'usebanner'
+    'concat:dist',
+    'copy:demo'
   ]);
 
-  grunt.registerTask( 'demo', [
-    'build',
-    'copy:demo'
+  grunt.registerTask( 'tmp', [
+    'concat:tmp'
   ]);
 
   grunt.initConfig({
 
+    /**
+     * Package.json
+     */
     pkg: grunt.file.readJSON('package.json'),
 
+    /**
+     * Meta
+     */
     meta: {
       banner:
         '/**\n' +
           ' * <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
           ' * @license Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
           ' * Dual licensed with the Apache-2.0 or MIT license.\n' +
-          ' */'
+          ' */\n'
     },
 
+    /**
+     * Copy
+     */
     copy: {
       demo: {
         files: [
@@ -45,12 +55,38 @@ module.exports = function(grunt) {
     },
 
     /**
+     * Concat
+     */
+    concat: {
+      options: {
+        separator: '\n'
+      },
+      tmp: {
+        src: [
+          'src/wrap-before.txt',
+          'src/navigator-detect.js',
+          'src/wrap-after.txt'
+        ],
+        dest: 'tmp/navigator-detect.js'
+      },
+      dist: {
+        options: {
+          banner: '<%= meta.banner %>'
+        },
+        src: [
+          'dist/navigator-detect.min.js'
+        ],
+        dest: 'dist/navigator-detect.min.js'
+      }
+    },
+
+    /**
      * Uglify
      */
     uglify: {
       options: {
         preserveComments: 'some',
-        banner: '<%= meta.banner %>\n'
+        banner: '<%= meta.banner %>'
       },
       dist: {
         options: {
@@ -60,7 +96,7 @@ module.exports = function(grunt) {
         },
         files: {
           'dist/navigator-detect.js': [
-            'src/navigator-detect.js'
+            'tmp/navigator-detect.js'
           ]
         }
       }
@@ -127,27 +163,12 @@ module.exports = function(grunt) {
      */
     'closure-compiler': {
       dist: {
-        js: 'src/navigator-detect.js',
+        js: 'tmp/navigator-detect.js',
         jsOutputFile: 'dist/navigator-detect.min.js',
         maxBuffer: 500,
         options: {
           compilation_level: 'ADVANCED_OPTIMIZATIONS',
           language_in: 'ECMASCRIPT5'
-        }
-      }
-    },
-
-    /**
-     * Banner
-     */
-    usebanner: {
-      taskName: {
-        options: {
-          position: 'top',
-          banner: '<%= meta.banner %>'
-        },
-        files: {
-          src: [ 'dist/navigator-detect.min.js' ]
         }
       }
     }

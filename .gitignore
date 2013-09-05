@@ -1,3 +1,4 @@
 .idea/
 node_modules/
 dist/navigator-detect.min.js.report.txt
+tmp/navigator-detect.js

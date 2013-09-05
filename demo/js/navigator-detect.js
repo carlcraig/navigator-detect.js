@@ -23,7 +23,7 @@
         this.tabletDevices = {
             iPad: "iPad|iPad.*Mobile",
             BlackBerryTablet: "PlayBook|RIM Tablet",
-            WindowsTablet: "Windows NT [0-9.]+; ARM;|(?=.*Windows.*)(?=.*Touch.*)",
+            WindowsTablet: "Windows NT [0-9.]+; ARM;",
             AndroidTablet: "\\bAndroid\\b"
         };
         this.mobileBrowsers = {

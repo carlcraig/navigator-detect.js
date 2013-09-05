@@ -2,8 +2,6 @@
  * Copyright 2013 Threecee Studios
  * navigator-detect.js is dual licensed with the Apache-2.0 or MIT license.
  */
-(function( window ) {
-
   /**
    * NavigatorDetect
    * @param userAgent
@@ -47,7 +45,7 @@
     this.tabletDevices = {
       "iPad": "iPad|iPad.*Mobile",
       "BlackBerryTablet": "PlayBook|RIM Tablet",
-      "WindowsTablet": "Windows NT [0-9.]+; ARM;|(?=.*Windows.*)(?=.*Touch.*)",
+      "WindowsTablet": "Windows NT [0-9.]+; ARM;",
       "AndroidTablet": "\\bAndroid\\b"
     };
 
@@ -283,25 +281,3 @@
     }
     return this.detected.os === os;
   };
-
-  /**
-   * Create Window object and AMD Modules
-   */
-
-  if ( typeof module === "object" && module && typeof module.exports === "object" ) {
-    // Register in module.exports
-    /** @expose */
-    module.exports = NavigatorDetect;
-  } else {
-    // Register as a named AMD module
-    if ( typeof define === "function" && typeof define.amd !== 'undefined' ) {
-      define( "navigatorDetect", [], function () { return NavigatorDetect; } );
-    }
-  }
-
-  // If there is a window object, we define navigatorDetect
-  if ( typeof window === "object" && typeof window.document === "object" ) {
-    window[ 'navigatorDetect' ] = new NavigatorDetect( window.navigator.userAgent );
-  }
-
-})( window );
