@@ -5,7 +5,7 @@ A javascript script to detect device, device-type, browser and operating system.
 
 Allows for conditional css by adding classes to the html element.
 
-Provides an easy to use api to perform conditional javascript based on the detected navigator.
+Provides an easy to use object to perform conditional javascript based on the detected navigator.
 
 This script is inspired by [Mobile-Detect](https://github.com/serbanghita/Mobile-Detect) for PHP and [device.js](https://github.com/matthewhudson/device.js)
 
@@ -66,8 +66,8 @@ Classes should also be added to the `<html>` element, based on the detected type
 
 
 
-API
----
+navigatorDetect object
+----------------------
 
 The navigator-detect.js will attach a `navigatorDetect` object to the `window` object, when it is loaded on a html
 page client-side.
