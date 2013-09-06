@@ -27,6 +27,7 @@
             WindowsTablet: "Windows NT [0-9.]+; ARM;",
             AndroidTablet: "\\bAndroid\\b"
         };
+        this.genericMobile = "(?=.*Mobile.*)";
         this.mobileBrowsers = {
             Chrome: "\\bCrMo\\b|CriOS|Android.*Chrome/[.0-9]*(Mobile)?",
             Opera: "Opera.*Mini|Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+",
@@ -102,7 +103,11 @@
                 return this.detected.device = prop;
             }
         }
-        this.detected.type = "desktop";
+        if (this.testRule(this.genericMobile, this.ua)) {
+            this.detected.type = "mobile";
+        } else {
+            this.detected.type = "desktop";
+        }
         return this.detected.device = "unknown";
     };
     NavigatorDetect.prototype.browser = function() {

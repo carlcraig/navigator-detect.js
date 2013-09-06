@@ -66,6 +66,12 @@ function NavigatorDetect( userAgent, documentObject ) {
   };
 
   /**
+   * Generic Mobile Rule
+   * @type {string}
+   */
+  this.genericMobile = "(?=.*Mobile.*)";
+
+  /**
    * Mobile Browsers
    * @type {{Chrome: string, Opera: string, IE: string, Firefox: string, Safari: string, UCBrowser: string}}
    */
@@ -183,7 +189,11 @@ NavigatorDetect.prototype.device = function() {
       return this.detected.device = prop;
     }
   }
-  this.detected.type = 'desktop';
+  if ( this.testRule( this.genericMobile, this.ua ) ) {
+    this.detected.type = 'mobile';
+  } else {
+    this.detected.type = 'desktop';
+  }
   return this.detected.device = 'unknown';
 };
 
