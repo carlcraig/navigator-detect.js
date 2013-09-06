@@ -1,13 +1,13 @@
 navigator-detect.js
 ===================
 
-A javascript library to detect device, device-type, browser and operating system.
+A javascript script to detect device, device-type, browser and operating system.
 
 Allows for conditional css by adding classes to the html element.
 
 Provides an easy to use api to perform conditional javascript based on the detected navigator.
 
-This library is inspired by [`Mobile-Detect`](https://github.com/serbanghita/Mobile-Detect) for PHP.
+This script is inspired by [Mobile-Detect](https://github.com/serbanghita/Mobile-Detect) for PHP and [device.js](https://github.com/matthewhudson/device.js)
 
 
 What does it detect?
@@ -28,6 +28,20 @@ navigator-detect.js will detect the following:
 |         |                |                  |          | LinuxOS           |
 
 
+How reliable is navigator-detect.js?
+------------------------------------
+
+This script will try to detect the device, type, browser and operating system based on the `userAgent` of 
+the visitor. UserAgent's are complicated, and vary for most devices and browsers and therefore we cannot guarantee that
+the detection is correct.
+
+This script is still under development to improve the detection of mobile and tablet devices along with browsers
+and operating systems. To imrove detection we will need to add lots of regex for different devices, browsers and operating systems. This
+will hugely increase the filesize of navigator-detect.js. Therefore we will look to create an `advanced` version
+which will have a wider scope of detection, with increased accuracy (and a larger filesize).
+
+
+
 How to Install?
 ---------------
 
@@ -39,25 +53,48 @@ The `dist` directory will contain the latest build of `navigator-detect.js` incl
 
 Or install via bower `bower install navigator-detect`
 
+
 #### 2. Add `navigator-detect.min.js` to your html.
 
 ```html
 <script src="navigator-detect.min.js"></script>
 ```
 
-#### 3. Success *(hopefully)*
-
 You should now be able to access the `window.navigatorDetect` object to use the javascript api.
 
 Classes should also be added to the `<html>` element, based on the detected type, device, browser and OS.
 
 
+
 API
-===
+---
+
+The navigator-detect.js will attach a `navigatorDetect` object to the `window` object, when it is loaded on a html
+page client-side.
+
+```javascript
+window.navigatorDetect
+```
+
+Through this object you will be able to perform calls to a variety of functions:
+
+### isMobile()
+
+Will detect if the device type is `mobile`
+```javascript
+window.navigatorDetect.isMobile()
+```
+
+
+Javascript API
+--------------
 
 ### `window.navigatorDetect` object
 
 The window navigatorDetect object is where you can access the navigator-detect api.
+
+
+
 
 #### `.isMobile()`
 
