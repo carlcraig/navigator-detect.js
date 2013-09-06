@@ -341,7 +341,7 @@ NavigatorDetect.prototype.addClass = function( add_class ) {
   add_class = add_class.toLowerCase();
   if ( this.documentObject && ! this.hasClass( add_class ) ) {
     this.documentObject.className = ( this.documentObject.className + ' ' + add_class ).replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-    this.classes += ' ' + add_class;
+    this.classes =  ( this.classes + ' ' + add_class ).replace(/^\s\s*/, '').replace(/\s\s*$/, '');
   }
 };
 
