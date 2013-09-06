@@ -330,23 +330,20 @@ NavigatorDetect.prototype.addClass = function( add_class ) {
  * Adds classes to the document object
  */
 NavigatorDetect.prototype.updateClasses = function() {
-  var classes = [];
   // Add Type Class
   if ( this.detected.type && ! this.hasClass( this.detected.type ) ) {
-    classes.push( this.detected.type );
+    this.addClass( this.detected.type );
   }
   // Add Device Class
   if ( this.detected.device && this.detected.device !== 'unknown' && ! this.hasClass( this.detected.device.toLowerCase() ) ) {
-    classes.push( this.detected.device.toLowerCase() );
+    this.addClass( this.detected.device.toLowerCase() );
   }
   // Add Browser Class
   if ( this.detected.browser && this.detected.browser !== 'unknown' && ! this.hasClass( this.detected.browser.toLowerCase() ) ) {
-    classes.push( this.detected.browser.toLowerCase() );
+    this.addClass( this.detected.browser.toLowerCase() );
   }
   // Add OS Class
   if ( this.detected.os && this.detected.os !== 'unknown' && ! this.hasClass( this.detected.os.toLowerCase() ) ) {
-    classes.push( this.detected.os.toLowerCase() );
+    this.addClass( this.detected.os.toLowerCase() );
   }
-
-  this.addClass( classes.join( ' ' ) );
 };

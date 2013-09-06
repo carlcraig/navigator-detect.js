@@ -186,20 +186,18 @@
         }
     };
     NavigatorDetect.prototype.updateClasses = function() {
-        var classes = [];
         if (this.detected.type && !this.hasClass(this.detected.type)) {
-            classes.push(this.detected.type);
+            this.addClass(this.detected.type);
         }
         if (this.detected.device && this.detected.device !== "unknown" && !this.hasClass(this.detected.device.toLowerCase())) {
-            classes.push(this.detected.device.toLowerCase());
+            this.addClass(this.detected.device.toLowerCase());
         }
         if (this.detected.browser && this.detected.browser !== "unknown" && !this.hasClass(this.detected.browser.toLowerCase())) {
-            classes.push(this.detected.browser.toLowerCase());
+            this.addClass(this.detected.browser.toLowerCase());
         }
         if (this.detected.os && this.detected.os !== "unknown" && !this.hasClass(this.detected.os.toLowerCase())) {
-            classes.push(this.detected.os.toLowerCase());
+            this.addClass(this.detected.os.toLowerCase());
         }
-        this.addClass(classes.join(" "));
     };
     if (typeof module === "object" && module && typeof module.exports === "object") {
         module.exports = NavigatorDetect;
