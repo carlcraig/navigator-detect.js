@@ -42,17 +42,17 @@
             IE: "MSIE"
         };
         this.mobileOperatingSystems = {
-            Android: "Android",
-            BlackBerry: "blackberry|\\bBB10\\b|RIM Tablet OS|BlackBerry;",
-            Windows: "Windows CE.*(PPC|Smartphone|Mobile|[0-9]{3}x[0-9]{3})|Window Mobile|Windows Phone [0-9.]+|WCE;|Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7",
+            AndroidOS: "Android",
+            BlackBerryOS: "blackberry|\\bBB10\\b|RIM Tablet OS|BlackBerry;",
+            WindowsPhoneOS: "Windows CE.*(PPC|Smartphone|Mobile|[0-9]{3}x[0-9]{3})|Window Mobile|Windows Phone [0-9.]+|WCE;|Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7",
             iOS: "\\biPhone.*Mobile|\\biPod|\\biPad",
             webOS: "webOS|hpwOS",
             badaOS: "\\bBada\\b"
         };
         this.operatingSystems = {
-            Windows: "Win",
+            WindowsOS: "Win",
             MacOS: "Mac",
-            Linux: "Linux"
+            LinuxOS: "Linux"
         };
     }
     NavigatorDetect.prototype.init = function() {
