@@ -55,7 +55,13 @@
             LinuxOS: "Linux"
         };
     }
-    NavigatorDetect.prototype.init = function() {
+    NavigatorDetect.prototype.init = function(userAgent, documentObject) {
+        if (userAgent) {
+            this.ua = userAgent;
+        }
+        if (documentObject) {
+            this.documentObject = documentObject;
+        }
         this.type();
         this.browser();
         this.os();
@@ -73,10 +79,9 @@
         return false;
     };
     NavigatorDetect.prototype.type = function() {
-        if (this.detected.type) {
-            return this.detected.type;
+        if (!this.detected.type) {
+            this.device();
         }
-        this.device();
         return this.detected.type;
     };
     NavigatorDetect.prototype.device = function() {
@@ -106,6 +111,9 @@
         var prop;
         for (prop in this.mobileBrowsers) {
             if (this.mobileBrowsers.hasOwnProperty(prop) && this.testRule(this.mobileBrowsers[prop], this.ua)) {
+                if (this.detected.type === "desktop") {
+                    this.detected.type = "mobile";
+                }
                 return this.detected.browser = prop;
             }
         }
@@ -126,6 +134,9 @@
         var prop;
         for (prop in this.mobileOperatingSystems) {
             if (this.mobileOperatingSystems.hasOwnProperty(prop) && this.testRule(this.mobileOperatingSystems[prop], this.ua)) {
+                if (this.detected.type === "desktop") {
+                    this.detected.type = "mobile";
+                }
                 return this.detected.os = prop;
             }
         }
@@ -160,19 +171,19 @@
         if (!this.detected.device) {
             this.device();
         }
-        return this.detected.device === device;
+        return this.detected.device.toLowerCase() === device.toLowerCase();
     };
     NavigatorDetect.prototype.isBrowser = function(browser) {
         if (!this.detected.browser) {
             this.browser();
         }
-        return this.detected.browser === browser;
+        return this.detected.browser.toLowerCase() === browser.toLowerCase();
     };
     NavigatorDetect.prototype.isOS = function(os) {
         if (!this.detected.os) {
             this.os();
         }
-        return this.detected.os === os;
+        return this.detected.os.toLowerCase() === os.toLowerCase();
     };
     NavigatorDetect.prototype.hasClass = function(check_class) {
         if (this.documentObject) {
@@ -181,22 +192,24 @@
         return false;
     };
     NavigatorDetect.prototype.addClass = function(add_class) {
+        add_class = add_class.toLowerCase();
         if (this.documentObject && !this.hasClass(add_class)) {
             this.documentObject.className = (this.documentObject.className + " " + add_class).replace(/^\s\s*/, "").replace(/\s\s*$/, "");
+            this.classes += " " + add_class;
         }
     };
     NavigatorDetect.prototype.updateClasses = function() {
         if (this.detected.type && !this.hasClass(this.detected.type)) {
             this.addClass(this.detected.type);
         }
-        if (this.detected.device && this.detected.device !== "unknown" && !this.hasClass(this.detected.device.toLowerCase())) {
-            this.addClass(this.detected.device.toLowerCase());
+        if (this.detected.device && this.detected.device !== "unknown") {
+            this.addClass(this.detected.device);
         }
-        if (this.detected.browser && this.detected.browser !== "unknown" && !this.hasClass(this.detected.browser.toLowerCase())) {
-            this.addClass(this.detected.browser.toLowerCase());
+        if (this.detected.browser && this.detected.browser !== "unknown") {
+            this.addClass(this.detected.browser);
         }
-        if (this.detected.os && this.detected.os !== "unknown" && !this.hasClass(this.detected.os.toLowerCase())) {
-            this.addClass(this.detected.os.toLowerCase());
+        if (this.detected.os && this.detected.os !== "unknown") {
+            this.addClass(this.detected.os);
         }
     };
     if (typeof module === "object" && module && typeof module.exports === "object") {

@@ -111,7 +111,13 @@ function NavigatorDetect( userAgent, documentObject ) {
  * Initialize NavigatorDetect to detect everything
  * @expose
  */
-NavigatorDetect.prototype.init = function() {
+NavigatorDetect.prototype.init = function( userAgent, documentObject ) {
+  if ( userAgent ) {
+    this.ua = userAgent;
+  }
+  if ( documentObject ) {
+    this.documentObject = documentObject;
+  }
   this.type();
   this.browser();
   this.os();
@@ -142,10 +148,9 @@ NavigatorDetect.prototype.testRule = function( rules, haystack ) {
  * @returns {*}
  */
 NavigatorDetect.prototype.type = function() {
-  if ( this.detected.type ) {
-    return this.detected.type;
+  if ( ! this.detected.type ) {
+    this.device();
   }
-  this.device();
   return this.detected.type;
 };
 
@@ -187,6 +192,9 @@ NavigatorDetect.prototype.browser = function() {
   var prop;
   for ( prop in this.mobileBrowsers ) {
     if ( this.mobileBrowsers.hasOwnProperty( prop ) && this.testRule( this.mobileBrowsers[ prop ], this.ua ) ) {
+      if ( this.detected.type === 'desktop' ) {
+        this.detected.type = 'mobile';
+      }
       return this.detected.browser = prop;
     }
   }
@@ -213,6 +221,9 @@ NavigatorDetect.prototype.os = function() {
   var prop;
   for ( prop in this.mobileOperatingSystems ) {
     if ( this.mobileOperatingSystems.hasOwnProperty( prop ) && this.testRule( this.mobileOperatingSystems[ prop ], this.ua ) ) {
+      if ( this.detected.type === 'desktop' ) {
+        this.detected.type = 'mobile';
+      }
       return this.detected.os = prop;
     }
   }
@@ -272,7 +283,7 @@ NavigatorDetect.prototype.isDevice = function( device ) {
   if ( ! this.detected.device ) {
     this.device();
   }
-  return this.detected.device === device;
+  return this.detected.device.toLowerCase() === device.toLowerCase();
 };
 
 /**
@@ -285,7 +296,7 @@ NavigatorDetect.prototype.isBrowser = function( browser ) {
   if ( ! this.detected.browser ) {
     this.browser();
   }
-  return this.detected.browser === browser;
+  return this.detected.browser.toLowerCase() === browser.toLowerCase();
 };
 
 /**
@@ -298,7 +309,7 @@ NavigatorDetect.prototype.isOS = function( os ) {
   if ( ! this.detected.os ) {
     this.os();
   }
-  return this.detected.os === os;
+  return this.detected.os.toLowerCase() === os.toLowerCase();
 };
 
 /**
@@ -320,8 +331,10 @@ NavigatorDetect.prototype.hasClass = function( check_class ) {
  * @param add_class
  */
 NavigatorDetect.prototype.addClass = function( add_class ) {
+  add_class = add_class.toLowerCase();
   if ( this.documentObject && ! this.hasClass( add_class ) ) {
-    this.documentObject.className = ( this.documentObject.className + " " + add_class ).replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    this.documentObject.className = ( this.documentObject.className + ' ' + add_class ).replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    this.classes += ' ' + add_class;
   }
 };
 
@@ -335,15 +348,15 @@ NavigatorDetect.prototype.updateClasses = function() {
     this.addClass( this.detected.type );
   }
   // Add Device Class
-  if ( this.detected.device && this.detected.device !== 'unknown' && ! this.hasClass( this.detected.device.toLowerCase() ) ) {
-    this.addClass( this.detected.device.toLowerCase() );
+  if ( this.detected.device && this.detected.device !== 'unknown' ) {
+    this.addClass( this.detected.device );
   }
   // Add Browser Class
-  if ( this.detected.browser && this.detected.browser !== 'unknown' && ! this.hasClass( this.detected.browser.toLowerCase() ) ) {
-    this.addClass( this.detected.browser.toLowerCase() );
+  if ( this.detected.browser && this.detected.browser !== 'unknown' ) {
+    this.addClass( this.detected.browser );
   }
   // Add OS Class
-  if ( this.detected.os && this.detected.os !== 'unknown' && ! this.hasClass( this.detected.os.toLowerCase() ) ) {
-    this.addClass( this.detected.os.toLowerCase() );
+  if ( this.detected.os && this.detected.os !== 'unknown' ) {
+    this.addClass( this.detected.os );
   }
 };
