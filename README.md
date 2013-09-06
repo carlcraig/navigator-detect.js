@@ -1,28 +1,56 @@
 navigator-detect.js
 ===================
 
-Detect:
+A javascript library to detect device, device-type, browser and operating system.
 
-- browser
-- device
-- type
-- os
-- version
+Allows for conditional css by adding classes to the html element.
 
-There are 2 Versions of natigator-detect.js.
+Provides an easy to use api to perform conditional javascript based on the detected navigator.
 
-- navigator-detect.js
-- navigator-detect-advanced.js
+This library is inspired by [`Mobile-Detect`](https://github.com/serbanghita/Mobile-Detect) for PHP.
 
-### Basic Version
 
-Lacks lots of checks that are executed in the `advanced` version. Samller file
-size.
+What does it detect?
+--------------------
 
-### Advanced Version
+navigator-detect.js will detect the following:
 
-Has many checks for different devices. Is useful if you need to get the exact
-device the visitor is using. Also provides extended version commands.
+| Type    | Mobile Devices | Tablet Devices   | Browsers | Operating Systems |
+:---------|----------------|------------------|----------|-------------------|
+| Mobile  | iPod           | iPad             | Chrome   | AndroidOS         |
+| Tablet  | iPhone         | BlackBerryTablet | Opera    | BlackBerryOS      |
+| Desktop | BlackBerry     | WindowsTablet    | IE       | WindowsPhoneOS    |
+|         | WindowsPhone   | AndroidTablet    | Firefox  | iOS               |
+|         | AndroidMobile  |                  | Safari   | webOS             |
+|         | GenericMobile  |                  | UCBrowser| badaOS            |
+|         |                |                  |          | WindowsOS         |
+|         |                |                  |          | MacOS             |
+|         |                |                  |          | LinuxOS           |
+
+
+How to Install?
+---------------
+
+#### 1. Get `navigator-detect.js`
+
+[Download the latest version of `navigator-detect.js` here.](https://github.com/ThreeceeStudios/navigator-detect.js/archive/master.zip)
+The `dist` directory will contain the latest build of `navigator-detect.js` including a minified version `navigator-detect.min.js`.
+
+
+Or install via bower `bower install navigator-detect`
+
+#### 2. Add `navigator-detect.min.js` to your html.
+
+```html
+<script src="navigator-detect.min.js"></script>
+```
+
+#### 3. Success *(hopefully)*
+
+You should now be able to access the `window.navigatorDetect` object to use the javascript api.
+
+Classes should also be added to the `<html>` element, based on the detected type, device, browser and OS.
+
 
 API
 ===
