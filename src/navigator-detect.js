@@ -25,6 +25,13 @@ function NavigatorDetect( userAgent, documentObject ) {
   this.documentObject = documentObject;
 
   /**
+   * Classes
+   * @expose
+   * @type {string}
+   */
+  this.classes = '';
+
+  /**
    * Detected Values
    * @type {{device: boolean, type: boolean, browser: boolean, os: boolean}}
    */

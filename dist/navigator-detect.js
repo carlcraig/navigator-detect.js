@@ -7,6 +7,7 @@
     function NavigatorDetect(userAgent, documentObject) {
         this.ua = userAgent;
         this.documentObject = documentObject;
+        this.classes = "";
         this.detected = {
             device: false,
             type: false,
