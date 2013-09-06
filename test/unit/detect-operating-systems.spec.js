@@ -15,7 +15,7 @@ describe('navigator-detect operating systems', function() {
     ];
     for ( i = 0; i < userAgents.length; i++ ) {
       cleanNavigator( navigatorDetect ).ua = userAgents[ i ];
-      expect( navigatorDetect.os() ).toEqual( 'Windows' );
+      expect( navigatorDetect.os() ).toEqual( 'WindowsOS' );
     }
   });
 
@@ -37,7 +37,7 @@ describe('navigator-detect operating systems', function() {
     ];
     for ( i = 0; i < userAgents.length; i++ ) {
       cleanNavigator( navigatorDetect ).ua = userAgents[ i ];
-      expect( navigatorDetect.os() ).toEqual( 'Linux' );
+      expect( navigatorDetect.os() ).toEqual( 'LinuxOS' );
     }
   });
 
