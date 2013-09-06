@@ -1,11 +1,12 @@
 /**
- * navigator-detect.js - v0.0.0 - 2013-09-05
+ * navigator-detect.js - v0.0.0 - 2013-09-06
  * @license Copyright (c) 2013 Threecee Studios
  * Dual licensed with the Apache-2.0 or MIT license.
  */
 (function(window) {
-    function NavigatorDetect(userAgent) {
+    function NavigatorDetect(userAgent, documentObject) {
         this.ua = userAgent;
+        this.documentObject = documentObject;
         this.detected = {
             device: false,
             type: false,
@@ -54,6 +55,12 @@
             Linux: "Linux"
         };
     }
+    NavigatorDetect.prototype.init = function() {
+        this.type();
+        this.browser();
+        this.os();
+        this.updateClasses();
+    };
     NavigatorDetect.prototype.testRule = function(rules, haystack) {
         if (Object.prototype.toString.call(rules) !== "[object Array]") {
             rules = [ rules ];
@@ -167,6 +174,33 @@
         }
         return this.detected.os === os;
     };
+    NavigatorDetect.prototype.hasClass = function(check_class) {
+        if (this.documentObject) {
+            return new RegExp("\\b" + check_class + "\\b").test(this.documentObject);
+        }
+        return false;
+    };
+    NavigatorDetect.prototype.addClass = function(add_class) {
+        if (this.documentObject && !this.hasClass(add_class)) {
+            this.documentObject.className = (this.documentObject.className + " " + add_class).replace(/^\s\s*/, "").replace(/\s\s*$/, "");
+        }
+    };
+    NavigatorDetect.prototype.updateClasses = function() {
+        var classes = [];
+        if (this.detected.type && !this.hasClass(this.detected.type)) {
+            classes.push(this.detected.type);
+        }
+        if (this.detected.device && this.detected.device !== "unknown" && !this.hasClass(this.detected.device.toLowerCase())) {
+            classes.push(this.detected.device.toLowerCase());
+        }
+        if (this.detected.browser && this.detected.browser !== "unknown" && !this.hasClass(this.detected.browser.toLowerCase())) {
+            classes.push(this.detected.browser.toLowerCase());
+        }
+        if (this.detected.os && this.detected.os !== "unknown" && !this.hasClass(this.detected.os.toLowerCase())) {
+            classes.push(this.detected.os.toLowerCase());
+        }
+        this.addClass(classes.join(" "));
+    };
     if (typeof module === "object" && module && typeof module.exports === "object") {
         module.exports = NavigatorDetect;
     } else {
@@ -177,6 +211,7 @@
         }
     }
     if (typeof window === "object" && typeof window.document === "object") {
-        window["navigatorDetect"] = new NavigatorDetect(window.navigator.userAgent);
+        window["navigatorDetect"] = new NavigatorDetect(window.navigator.userAgent, window.document.documentElement);
+        window["navigatorDetect"].init();
     }
 })(window);

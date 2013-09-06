@@ -6,15 +6,23 @@
 /**
  * NavigatorDetect
  * @param userAgent
+ * @param documentObject
  * @constructor
  */
-function NavigatorDetect( userAgent ) {
+function NavigatorDetect( userAgent, documentObject ) {
 
   /**
    * User Agent
    * @type {*}
    */
   this.ua = userAgent;
+
+  /**
+   * Document Object
+   * This will normally be the HTML tag
+   * @type {*}
+   */
+  this.documentObject = documentObject;
 
   /**
    * Detected Values
@@ -98,6 +106,17 @@ function NavigatorDetect( userAgent ) {
     "Linux": "Linux"
   };
 }
+
+/**
+ * Initialize NavigatorDetect to detect everything
+ * @expose
+ */
+NavigatorDetect.prototype.init = function() {
+  this.type();
+  this.browser();
+  this.os();
+  this.updateClasses();
+};
 
 /**
  * Test Rule
@@ -280,4 +299,54 @@ NavigatorDetect.prototype.isOS = function( os ) {
     this.os();
   }
   return this.detected.os === os;
+};
+
+/**
+ * hasClass
+ * Checks if the documentObject has the specified check_class
+ * @param check_class
+ * @returns {boolean}
+ */
+NavigatorDetect.prototype.hasClass = function( check_class ) {
+  if ( this.documentObject ) {
+    return new RegExp("\\b" + check_class + "\\b" ).test( this.documentObject );
+  }
+  return false;
+};
+
+/**
+ * addClass
+ * Adds a class to the document object
+ * @param add_class
+ */
+NavigatorDetect.prototype.addClass = function( add_class ) {
+  if ( this.documentObject && ! this.hasClass( add_class ) ) {
+    this.documentObject.className = ( this.documentObject.className + " " + add_class ).replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+  }
+};
+
+/**
+ * Update Classes
+ * Adds classes to the document object
+ */
+NavigatorDetect.prototype.updateClasses = function() {
+  var classes = [];
+  // Add Type Class
+  if ( this.detected.type && ! this.hasClass( this.detected.type ) ) {
+    classes.push( this.detected.type );
+  }
+  // Add Device Class
+  if ( this.detected.device && this.detected.device !== 'unknown' && ! this.hasClass( this.detected.device.toLowerCase() ) ) {
+    classes.push( this.detected.device.toLowerCase() );
+  }
+  // Add Browser Class
+  if ( this.detected.browser && this.detected.browser !== 'unknown' && ! this.hasClass( this.detected.browser.toLowerCase() ) ) {
+    classes.push( this.detected.browser.toLowerCase() );
+  }
+  // Add OS Class
+  if ( this.detected.os && this.detected.os !== 'unknown' && ! this.hasClass( this.detected.os.toLowerCase() ) ) {
+    classes.push( this.detected.os.toLowerCase() );
+  }
+
+  this.addClass( classes.join( ' ' ) );
 };

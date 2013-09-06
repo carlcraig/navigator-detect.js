@@ -1,5 +1,3 @@
-console.log(window.navigatorDetect);
-
 document.getElementById( 'userAgent' ).appendChild( document.createTextNode( window.navigator.userAgent ) );
 document.getElementById( 'type' ).appendChild( document.createTextNode( window.navigatorDetect.type() ) );
 document.getElementById( 'device' ).appendChild( document.createTextNode( window.navigatorDetect.device() ) );

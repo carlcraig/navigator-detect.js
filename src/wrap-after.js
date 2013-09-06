@@ -16,7 +16,8 @@
 
   // If there is a window object, we define navigatorDetect
   if ( typeof window === "object" && typeof window.document === "object" ) {
-    window[ 'navigatorDetect' ] = new NavigatorDetect( window.navigator.userAgent );
+    window[ 'navigatorDetect' ] = new NavigatorDetect( window.navigator.userAgent, window.document.documentElement );
+    window[ 'navigatorDetect' ].init();
   }
 
 })( window );
