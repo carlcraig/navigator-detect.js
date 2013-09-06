@@ -66,8 +66,8 @@ Classes should also be added to the `<html>` element, based on the detected type
 
 
 
-navigatorDetect object
-----------------------
+Javascript Object
+-----------------
 
 The navigator-detect.js will attach a `navigatorDetect` object to the `window` object, when it is loaded on a html
 page client-side.
