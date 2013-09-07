@@ -1,6 +1,8 @@
 navigator-detect.js
 ===================
 
+[![Build Status](https://travis-ci.org/[ThreeceeStudios]/[navigator-detect.js].png)](https://travis-ci.org/ThreeceeStudios]/[navigator-detect.js])
+
 A javascript script to detect device, device-type, browser and operating system.
 
 Allows for conditional css by adding classes to the html element.
