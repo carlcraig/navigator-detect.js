@@ -1,7 +1,7 @@
 navigator-detect.js
 ===================
 
-[![Build Status](https://travis-ci.org/ThreeceeStudios/navigator-detect.js.png)](https://travis-ci.org/ThreeceeStudios]/navigator-detect.js)
+[![Build Status](https://travis-ci.org/ThreeceeStudios/navigator-detect.js.png)](https://travis-ci.org/ThreeceeStudios/navigator-detect.js)
 
 A javascript script to detect device, device-type, browser and operating system.
 
