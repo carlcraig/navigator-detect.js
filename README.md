@@ -28,6 +28,7 @@ navigator-detect.js will detect the following:
 |         |                |                  |          | LinuxOS           |
 
 
+
 How reliable is navigator-detect.js?
 ------------------------------------
 
