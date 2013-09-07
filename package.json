@@ -2,7 +2,14 @@
   "name": "navigator-detect.js",
   "version": "0.0.0",
   "description": "Detect Device, Browser, Type, OS",
+  "homepage": "https://github.com/ThreeceeStudios/navigator-detect.js.git",
   "author": "Threecee Studios",
+  "contributors": [
+    {
+      "name": "Carl Craig",
+      "email": "carlcraig@3c-studios.com"
+    }
+  ],
   "license": [
     {
       "type": "MIT",
@@ -13,9 +20,13 @@
       "url": "https://raw.github.com/ThreeceeStudios/navigator-detect.js/master/LICENSE-APACHE-2.0"
     }
   ],
-  "homepage": "https://github.com/ThreeceeStudios/navigator-detect.js.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThreeceeStudios/navigator-detect.js.git"
+  },
   "dependencies": {},
   "devDependencies": {
+    "karma": "~0.8",
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.1.1",
     "grunt-contrib-uglify": "~0.2.1",
@@ -26,8 +37,7 @@
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ThreeceeStudios/navigator-detect.js.git"
+  "scripts": {
+    "test": "./node_modules/.bin/karma start ./test/karma.conf.js --single-run --browsers PhantomJS"
   }
 }
