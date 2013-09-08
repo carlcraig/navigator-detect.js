@@ -45,9 +45,11 @@ This script will try to detect the device, type, browser and operating system ba
 the visitor. UserAgent's are complicated, and vary for most devices and browsers and therefore we cannot guarantee that
 the detection is correct.
 
-This script is still under development to improve the detection of mobile and tablet devices along with browsers
-and operating systems. To imrove detection we will need to add lots of regex for different devices, browsers and operating systems. This
-will hugely increase the filesize of navigator-detect.js. Therefore we will look to create an `advanced` version
+This script is still under heavy development to improve the detection of mobile and tablet devices along with browsers
+and operating systems.
+
+To improve detection we will need to add lots of regex for different devices, browsers and operating systems. This
+will hugely increase the filesize of navigator-detect.js. Therefore. we will look into create an `extended` version
 which will have a wider scope of detection, with increased accuracy (and a larger filesize).
 
 
