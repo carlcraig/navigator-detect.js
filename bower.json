@@ -1,0 +1,37 @@
+{
+  "name": "navigator-detect.js",
+  "version": "0.0.0",
+  "description": "A small script to detect Device, Mobile, Tablet, Browser and Operating System",
+  "homepage": "https://github.com/ThreeceeStudios/navigator-detect.js",
+  "author": "Threecee Studios",
+  "main": [
+    "dist/navigator-detect.js",
+    "dist/navigator-detect.min.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "demo",
+    "tmp",
+    "node_modules",
+    "bower_components",
+    "test*",
+    "Gruntfile.js",
+    "package.json"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/ThreeceeStudios/navigator-detect.js/master/LICENSE-MIT"
+    },
+    {
+      "type": "Apache-2.0",
+      "url": "https://raw.github.com/ThreeceeStudios/navigator-detect.js/master/LICENSE-APACHE-2.0"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThreeceeStudios/navigator-detect.js.git"
+  }
+}
