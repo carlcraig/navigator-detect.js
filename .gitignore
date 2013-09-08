@@ -1,4 +1,5 @@
 .idea/
 node_modules/
+bower_components/
 dist/navigator-detect.min.js.report.txt
 tmp/navigator-detect.js
