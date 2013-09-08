@@ -67,7 +67,7 @@ How to Install?
 The `dist` directory will contain the latest build of `navigator-detect.js` including a minified version `navigator-detect.min.js`.
 
 
-Or install via bower `bower install navigator-detect`
+Or install via bower `bower install navigator-detect.js`
 
 
 #### 2. Add `navigator-detect.min.js` to your html.
