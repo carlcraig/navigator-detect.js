@@ -20,6 +20,15 @@ module.exports = function(grunt) {
     'copy:demo'
   ]);
 
+  grunt.registerTask( 'build:no-closure', [
+    'jshint',
+    'concat:tmp',
+    'uglify:dist',
+    'uglify:dist-min',
+    'strip:build',
+    'copy:demo'
+  ]);
+
   grunt.registerTask( 'tmp', [
     'concat:tmp'
   ]);
@@ -96,6 +105,18 @@ module.exports = function(grunt) {
         },
         files: {
           'dist/navigator-detect.js': [
+            'tmp/navigator-detect.js'
+          ]
+        }
+      },
+      "dist-min": {
+        options: {
+          mangle: true,
+          compress: true,
+          beautify: false
+        },
+        files: {
+          'dist/navigator-detect.min.js': [
             'tmp/navigator-detect.js'
           ]
         }
