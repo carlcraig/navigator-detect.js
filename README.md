@@ -16,6 +16,10 @@ Contents              |
 [How reliable is navigator-detect.js](https://github.com/ThreeceeStudios/navigator-detect.js#how-reliable-is-navigator-detectjs) |
 [How to install?](https://github.com/ThreeceeStudios/navigator-detect.js#how-to-install) |
 [The navigatorDetect object](https://github.com/ThreeceeStudios/navigator-detect.js#the-navigatordetect-object) |
+[Conditional CSS](https://github.com/ThreeceeStudios/navigator-detect.js#conditional-css) |
+[Developing navigator-detect.js] (https://github.com/ThreeceeStudios/navigator-detect.js#developing-navigator-detectjs) |
+[Running the Unit Tests] (https://github.com/ThreeceeStudios/navigator-detect.js#running-the-unit-tests) |
+[Contributing] (https://github.com/ThreeceeStudios/navigator-detect.js#contributing) |
 [License] (https://github.com/ThreeceeStudios/navigator-detect.js#license) |
 
 
@@ -103,6 +107,114 @@ Methods       | Example                                        | Description
 **isBrowser** | `window.navigatorDetect.isBrowser( "Chrome" )` | Checks if the browser is equal to the browser argument given. In this case will return `true` if the detected browser is `Chrome`               |
 **isOS**      | `window.navigatorDetect.isOS( "MacOS" )`       | Checks if the operating system is equal to the operating system argument given. In this case will return `true` if the detected OS is `MacOS`   |
 
+
+Conditional CSS
+===============
+
+When navigator-detect.js is loaded in a html page, it will attach classes to the html element depending on the
+detected device, type, browser and operating system.
+
+It will only add a class if it is detected. The class names will generally be the detected name in lowercase.
+
+To see all of the detected devices, browsers and operating systems [please click here.](https://github.com/ThreeceeStudios/navigator-detect.js#what-does-it-detect)
+
+#### Examples
+
+When html page is viewed through an `iPhone` the following classes will be present on the html element.
+
+```html
+<html class="mobile iphone safari ios">
+```
+
+When html page is viewed through desktop `chrome` browser, the classes will be as follows:
+
+```html
+<html class="desktop chrome windowsos">
+```
+
+
+Developing navigator-detect.js
+==============================
+
+navigator-detect.js is built on node with `grunt`
+
+To get started, clone navigator-detect.js.
+
+```
+git clone https://github.com/ThreeceeStudios/navigator-detect.js.git
+
+cd navigator-detect.js
+```
+
+Then run npm install to install all required dependencies.
+
+```
+npm install
+```
+
+You will need a global version of `grunt-cli` to utilize the grunt tasks.
+
+```
+npm install -g grunt-cli
+```
+
+You should now be ready to run all the unit tests, and run the build tasks.
+
+To build a new dist of navigator-detect.js and update the demo. Run the following command:
+
+```
+grunt build
+```
+
+This will require a local installation of `closure-compiler`. You will also need to set a `CLOSURE_PATH` environment
+variable which points to the root of the closure-compiler installation directory. Meaning the compiler.jar should be
+located `CLOSURE_PATH/build/compiler.jar`. [Click here for more information on closure-compiler.](https://developers.google.com/closure/compiler/)
+
+Alternatively, you may not want to install closure-compiler. In which case you can use the following command:
+
+```
+grunt build:no-closure
+```
+
+The minified file is slightly larger when using this method as some method names are not compressed.
+
+
+Running the Unit Tests
+======================
+
+To run the unit tests you will need a karma server running. This can be achieved with the following command.
+
+```
+grunt karma:unit watch
+```
+
+Or manually start the karma server with the following
+
+```
+karma start test/karma.conf.js --browsers Chrome
+```
+
+Then manually force the unit tests to run
+
+```
+grunt karma:unit:run
+```
+
+Or use the watch task, to watch for changes and automatically run unit tests.
+
+```
+grunt watch
+```
+
+
+Contributing
+============
+
+- [Open a Pull Request (PR)](https://github.com/ThreeceeStudios/navigator-detect.js/pull/new/master)
+- Make sure your PR is on a new branch you created from the latest version of master branch
+- Please do not open a PR from your master branch
+- Open a PR even if your code is incomplete to start a discussion and to collect feedback
+- Please make sure all unit tests pass, and add new tests for any added features.
 
 
 License
