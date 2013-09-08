@@ -3,17 +3,24 @@ navigator-detect.js
 
 [![Build Status](https://travis-ci.org/ThreeceeStudios/navigator-detect.js.png)](https://travis-ci.org/ThreeceeStudios/navigator-detect.js)
 
-A javascript script to detect device, device-type, browser and operating system.
+navigator-detect.js is a script to detect the Device, Device Type, Browser and Operating System.
 
-Allows for conditional css by adding classes to the html element.
-
-Provides an easy to use object to perform conditional javascript based on the detected navigator.
+It provides a `navigatorDetect` object with many useful methods for detecting the above. navigator-detect.js will
+also add classes to the html element to allow for conditional css.
 
 This script is inspired by [Mobile-Detect](https://github.com/serbanghita/Mobile-Detect) for PHP and [device.js](https://github.com/matthewhudson/device.js)
 
+Contents              |
+----------------------|
+[What does it detect?](https://github.com/ThreeceeStudios/navigator-detect.js#what-does-it-detect) |
+[How reliable is navigator-detect.js](https://github.com/ThreeceeStudios/navigator-detect.js#how-reliable-is-navigator-detectjs) |
+[How to install?](https://github.com/ThreeceeStudios/navigator-detect.js#how-to-install) |
+[The navigatorDetect object](https://github.com/ThreeceeStudios/navigator-detect.js#the-navigatordetect-object) |
+[License] (https://github.com/ThreeceeStudios/navigator-detect.js#license) |
+
 
 What does it detect?
---------------------
+====================
 
 navigator-detect.js will detect the following:
 
@@ -32,7 +39,7 @@ navigator-detect.js will detect the following:
 
 
 How reliable is navigator-detect.js?
-------------------------------------
+====================================
 
 This script will try to detect the device, type, browser and operating system based on the `userAgent` of 
 the visitor. UserAgent's are complicated, and vary for most devices and browsers and therefore we cannot guarantee that
@@ -46,7 +53,7 @@ which will have a wider scope of detection, with increased accuracy (and a large
 
 
 How to Install?
----------------
+===============
 
 #### 1. Get `navigator-detect.js`
 
@@ -69,8 +76,8 @@ Classes should also be added to the `<html>` element, based on the detected type
 
 
 
-Javascript Object
------------------
+The navigatorDetect object
+==========================
 
 The navigator-detect.js will attach a `navigatorDetect` object to the `window` object, when it is loaded on a html
 page client-side.
@@ -79,70 +86,22 @@ page client-side.
 window.navigatorDetect
 ```
 
-Through this object you will be able to perform calls to a variety of functions:
+There are many methods which can be used on this object.
 
-### isMobile()
-
-Will detect if the device type is `mobile`
-```javascript
-window.navigatorDetect.isMobile()
-```
-
-
-Javascript API
---------------
-
-### `window.navigatorDetect` object
-
-The window navigatorDetect object is where you can access the navigator-detect api.
+Methods       | Example                                        | Description                          
+|:------------|:-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+**device**    | `window.navigatorDetect.device()`              | Returns the name of device or `unknown` if no device detected                                                                                   |
+**type**      | `window.navigatorDetect.type()`                | Returns the type of device `mobile`, `tablet` or `desktop`                                                                                      |
+**browser**   | `window.navigatorDetect.browser()`             | Returns the name of browser or `unknown` if no browser detected                                                                                 |
+**os**        | `window.navigatorDetect.os()`                  | Returns the name of operating system or `unknown` if no OS detected                                                                             |
+**isMobile**  | `window.navigatorDetect.isMobile()`            | Returns `true` if the device type is `mobile`                                                                                                   |
+**isTablet**  | `window.navigatorDetect.isTablet()`            | Returns `true` if the device type is `tablet`                                                                                                   |
+**isDesktop** | `window.navigatorDetect.isDesktop()`           | Returns `true` if the device type is `desktop`                                                                                                  |
+**isDevice**  | `window.navigatorDetect.isDevice( "iPhone" )`  | Checks if the device is equal to the device argument given. In this case will return `true` if the detected device is `iPhone`                  |
+**isBrowser** | `window.navigatorDetect.isBrowser( "Chrome" )` | Checks if the browser is equal to the browser argument given. In this case will return `true` if the detected browser is `Chrome`               |
+**isOS**      | `window.navigatorDetect.isOS( "MacOS" )`       | Checks if the operating system is equal to the operating system argument given. In this case will return `true` if the detected OS is `MacOS`   |
 
 
-
-
-#### `.isMobile()`
-
-Returns `true` if the visitor is using a mobile device.
-
-#### `.isTablet()`
-
-Returns `true` if the visitor is using a tablet device.
-
-#### `.isDesktop()`
-
-Returns `true` if the visitor is using a desktop device.
-
-#### `.browser()`
-
-Returns the name of the browser being used.
-
-#### `.device()`
-
-Returns the name of the device being used.
-
-#### `.type()`
-
-Similar to `.isMobile()`, `.isTablet()` and `.isDesktop()`. This will return a string
-based on the type of device being used:
-
-- `mobile`
-- `tablet`
-- `desktop`
-
-#### `.os()`
-
-Returns the name of the operating system being used.
-
-#### `.isDevice( device )`
-
-Checks if the device is the same as specified in `device` parameter
-
-#### `.isBrowser( browser )`
-
-Checks if the browser is the same as specified in `browser` parameter
-
-#### `.isOS( os )`
-
-Checks if the operating system is the same as specified in `os` parameter
 
 License
 =======
