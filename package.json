@@ -1,6 +1,6 @@
 {
   "name": "navigator-detect.js",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A small script to detect Device, Mobile, Tablet, Browser and Operating System",
   "homepage": "https://github.com/ThreeceeStudios/navigator-detect.js.git",
   "author": "Threecee Studios",
