@@ -2,8 +2,8 @@
   "name": "navigator-detect.js",
   "version": "1.0.0",
   "description": "A small script to detect Device, Mobile, Tablet, Browser and Operating System",
-  "homepage": "https://github.com/ThreeceeStudios/navigator-detect.js",
-  "author": "Threecee Studios",
+  "homepage": "https://github.com/carlcraig/navigator-detect.js",
+  "author": "Carl Craig",
   "main": [
     "dist/navigator-detect.js",
     "dist/navigator-detect.min.js"
@@ -24,15 +24,15 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://raw.github.com/ThreeceeStudios/navigator-detect.js/master/LICENSE-MIT"
+      "url": "https://raw.github.com/carlcraig/navigator-detect.js/master/LICENSE-MIT"
     },
     {
       "type": "Apache-2.0",
-      "url": "https://raw.github.com/ThreeceeStudios/navigator-detect.js/master/LICENSE-APACHE-2.0"
+      "url": "https://raw.github.com/carlcraig/navigator-detect.js/master/LICENSE-APACHE-2.0"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ThreeceeStudios/navigator-detect.js.git"
+    "url": "https://github.com/carlcraig/navigator-detect.js.git"
   }
 }
