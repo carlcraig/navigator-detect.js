@@ -1,7 +1,7 @@
 navigator-detect.js
 ===================
 
-[![Build Status](https://travis-ci.org/ThreeceeStudios/navigator-detect.js.png)](https://travis-ci.org/ThreeceeStudios/navigator-detect.js)
+[![Build Status](https://travis-ci.org/carlcraig/navigator-detect.js.png)](https://travis-ci.org/carlcraig/navigator-detect.js)
 
 navigator-detect.js is a script to detect the Device, Device Type, Browser and Operating System.
 
@@ -12,15 +12,15 @@ This script is inspired by [Mobile-Detect](https://github.com/serbanghita/Mobile
 
 Contents              |
 ----------------------|
-[What does it detect?](https://github.com/ThreeceeStudios/navigator-detect.js#what-does-it-detect) |
-[How reliable is navigator-detect.js](https://github.com/ThreeceeStudios/navigator-detect.js#how-reliable-is-navigator-detectjs) |
-[How to install?](https://github.com/ThreeceeStudios/navigator-detect.js#how-to-install) |
-[The navigatorDetect object](https://github.com/ThreeceeStudios/navigator-detect.js#the-navigatordetect-object) |
-[Conditional CSS](https://github.com/ThreeceeStudios/navigator-detect.js#conditional-css) |
-[Developing navigator-detect.js] (https://github.com/ThreeceeStudios/navigator-detect.js#developing-navigator-detectjs) |
-[Running the Unit Tests] (https://github.com/ThreeceeStudios/navigator-detect.js#running-the-unit-tests) |
-[Contributing] (https://github.com/ThreeceeStudios/navigator-detect.js#contributing) |
-[License] (https://github.com/ThreeceeStudios/navigator-detect.js#license) |
+[What does it detect?](https://github.com/carlcraig/navigator-detect.js#what-does-it-detect) |
+[How reliable is navigator-detect.js](https://github.com/carlcraig/navigator-detect.js#how-reliable-is-navigator-detectjs) |
+[How to install?](https://github.com/carlcraig/navigator-detect.js#how-to-install) |
+[The navigatorDetect object](https://github.com/carlcraig/navigator-detect.js#the-navigatordetect-object) |
+[Conditional CSS](https://github.com/carlcraig/navigator-detect.js#conditional-css) |
+[Developing navigator-detect.js] (https://github.com/carlcraig/navigator-detect.js#developing-navigator-detectjs) |
+[Running the Unit Tests] (https://github.com/carlcraig/navigator-detect.js#running-the-unit-tests) |
+[Contributing] (https://github.com/carlcraig/navigator-detect.js#contributing) |
+[License] (https://github.com/carlcraig/navigator-detect.js#license) |
 
 
 What does it detect?
@@ -63,7 +63,7 @@ How to Install?
 
 #### 1. Get `navigator-detect.js`
 
-[Download the latest version of `navigator-detect.js` here.](https://github.com/ThreeceeStudios/navigator-detect.js/archive/master.zip)
+[Download the latest version of `navigator-detect.js` here.](https://github.com/carlcraig/navigator-detect.js/archive/master.zip)
 The `dist` directory will contain the latest build of `navigator-detect.js` including a minified version `navigator-detect.min.js`.
 
 
@@ -116,7 +116,7 @@ detected device, type, browser and operating system.
 
 It will only add a class if it is detected. The class names will generally be the detected name in lowercase.
 
-To see all of the detected devices, browsers and operating systems [please click here.](https://github.com/ThreeceeStudios/navigator-detect.js#what-does-it-detect)
+To see all of the detected devices, browsers and operating systems [please click here.](https://github.com/carlcraig/navigator-detect.js#what-does-it-detect)
 
 #### Examples
 
@@ -141,7 +141,7 @@ navigator-detect.js is built on node with `grunt`
 To get started, clone navigator-detect.js.
 
 ```
-git clone https://github.com/ThreeceeStudios/navigator-detect.js.git
+git clone https://github.com/carlcraig/navigator-detect.js.git
 
 cd navigator-detect.js
 ```
@@ -210,7 +210,7 @@ grunt watch
 Contributing
 ============
 
-- [Open a Pull Request (PR)](https://github.com/ThreeceeStudios/navigator-detect.js/pull/new/master)
+- [Open a Pull Request (PR)](https://github.com/carlcraig/navigator-detect.js/pull/new/master)
 - Make sure your PR is on a new branch you created from the latest version of master branch
 - Please do not open a PR from your master branch
 - Open a PR even if your code is incomplete to start a discussion and to collect feedback
