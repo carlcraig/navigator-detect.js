@@ -2,8 +2,8 @@
   "name": "navigator-detect.js",
   "version": "1.0.0",
   "description": "A small script to detect Device, Mobile, Tablet, Browser and Operating System",
-  "homepage": "https://github.com/carlcraig/navigator-detect.js.git",
-  "author": "Carl Craig",
+  "homepage": "https://github.com/carlcraig/navigator-detect.js",
+  "author": "Carl Craig <carlcraig@3c-studios.com>",
   "dependencies": {},
   "devDependencies": {
     "karma": "~0.8",

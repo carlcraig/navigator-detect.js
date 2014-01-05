@@ -1,6 +1,6 @@
 /**
  * navigator-detect.js - v1.0.0 - 2013-09-08
- * @license Copyright (c) 2013 Threecee Studios
+ * @license Copyright (c) 2013 Carl Craig
  * Dual licensed with the Apache-2.0 or MIT license.
  */
 (function(window) {

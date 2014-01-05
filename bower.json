@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A small script to detect Device, Mobile, Tablet, Browser and Operating System",
   "homepage": "https://github.com/carlcraig/navigator-detect.js",
-  "author": "Carl Craig",
+  "author": "Carl Craig <carlcraig@3c-studios.com>",
   "main": [
     "dist/navigator-detect.js",
     "dist/navigator-detect.min.js"
